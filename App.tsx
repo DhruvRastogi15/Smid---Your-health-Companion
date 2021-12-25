@@ -16,16 +16,16 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from './Components/SplashScreen/SplashScreen';
-import LoginScreen from './Components/Login_SignupScreens/LoginScreen';
-import OTPScreen from './Components/Login_SignupScreens/OTPScreen';
-import HomeScreen from './Components/HomeScreens/HomeScreen';
-import DetailsScreen from './Components/HomeScreens/DetailsScreen';
+import SplashScreen from './Components/Screens/SplashScreen/SplashScreen';
+import LoginScreen from './Components/Screens/Login_SignupScreens/LoginScreen';
+import OTPScreen from './Components/Screens/Login_SignupScreens/OTPScreen';
+import HomeScreen from './Components/Screens/HomeScreens/HomeScreen';
+import DetailsScreen from './Components/Screens/HomeScreens/DetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  console.disableYellowBox = true;
+  // console.disableYellowBox = true;
   return (
     <NavigationContainer>
       <Stack.Navigator>
