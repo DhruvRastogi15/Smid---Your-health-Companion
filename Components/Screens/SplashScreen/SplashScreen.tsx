@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {View,Text, Alert} from 'react-native'
-import {storeStringValue,storeObjectData,getStringValue,getObjectData} from '../../Utilities/Utilities'
+import {storeStringValue,storeObjectData,getStringValue,getObjectData} from '../../Utilities/AsyncStore'
 
 interface Props {
   navigation: any;
