@@ -21,6 +21,7 @@ import LoginScreen from './Components/Screens/Login_SignupScreens/LoginScreen';
 import OTPScreen from './Components/Screens/Login_SignupScreens/OTPScreen';
 import HomeScreen from './Components/Screens/HomeScreens/HomeScreen';
 import DetailsScreen from './Components/Screens/HomeScreens/DetailsScreen';
+import Workouts from './Components/Screens/MainWorkouts.tsx/Workouts';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +40,13 @@ export default function App() {
           headerShown : false
         }}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+        <Stack.Screen name="DetailsScreen" component={DetailsScreen} options={{
+          headerShown : false
+        }} />
+        <Stack.Screen name="Workouts" component={Workouts} options={{
+          headerShown : false
+          // ({ route }) => ({ title: route.params.name })
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

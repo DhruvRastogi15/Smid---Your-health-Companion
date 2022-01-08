@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import {View,Text, Alert} from 'react-native'
-import {storeStringValue,storeObjectData,getStringValue,getObjectData} from '../../Utilities/AsyncStore'
+import { View, Text, Alert } from 'react-native'
+import { storeStringValue, storeObjectData, getStringValue, getObjectData } from '../../Utilities/AsyncStore'
 
 interface Props {
   navigation: any;
@@ -10,30 +10,39 @@ interface Props {
 const SplashScreen = (props: Props) => {
 
   const someFunction = async () => {
-    await storeStringValue('message','Heyyy')
-        let message : any = await getStringValue('message')
-        Alert.alert(message)
-    }
+    await storeStringValue('message', 'Heyyy')
+    let message: any = await getStringValue('message')
+    Alert.alert(message)
+  }
 
-    const moveToNextScreen = async () => {
-      let userData = await getObjectData("userData")
-      if(userData?.data?.isUserLoggedIn === true) {
-         props.navigation.navigate('HomeScreen')
-      } else {
-         props.navigation.navigate('OTPScreen')
+  const moveToNextScreen = async () => {
+    let userData = await getObjectData("userData")
+    if (userData?.data?.isUserLoggedIn === true) {
+      props.navigation.navigate('DetailsScreen')
+    } else {
+      props.navigation.navigate('OTPScreen')
+    }
+  }
+
+  useEffect( () => {
+    const initializing = async () => {
+    let userData = {
+      data: {
+        isUserLoggedIn: true
       }
     }
-
-    useEffect(()=>{
-      setTimeout(() => {
-        console.log("Hiiiii")
-        moveToNextScreen();
-      }, 1000);
-    },[])
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Splash Screen</Text>
-      </View>
-    );
+    await storeObjectData("userData", userData)
+    setTimeout(() => {
+      console.log("Hiiiii")
+      moveToNextScreen();
+    }, 1000);
   }
-  export default SplashScreen;
+  initializing();
+  }, [])
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Splash Screen</Text>
+    </View>
+  );
+}
+export default SplashScreen;

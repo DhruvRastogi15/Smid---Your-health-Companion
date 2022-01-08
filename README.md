@@ -22,7 +22,11 @@ const ScreenName = (props: Props) => {
     }
 
     useEffect(()=>{
-      
+      const initializing = async () => {
+
+
+        }
+      initializing();
     },[])
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
